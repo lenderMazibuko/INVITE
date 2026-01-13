@@ -249,16 +249,42 @@
     </div>
 
     <script>
-        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            alert(`Thank you, ${name}! Your RSVP has been received.`);
-            this.reset();
-        });
+        
             
         // Countdown Timer
         const weddingDate = new Date("September 26, 2026 15:00:00").getTime();
         const countdownEl = document.getElementById('countdown');
+<script>
+document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent default form submission
+
+    // Get form values
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const attendance = document.getElementById('attendance').value;
+    const plusOne = document.getElementById('plusOne').value;
+    const song = document.getElementById('song').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Construct the email body
+    const emailBody = 
+`Name: ${name}
+Email: ${email}
+Attending: ${attendance}
+Plus One: ${plusOne}
+Song Suggestion: ${song}
+Message: ${message}`;
+
+    // Create mailto link
+    const mailtoLink = `mailto:Lendern6@gmail.com?subject=${encodeURIComponent('Wedding RSVP from ' + name)}&body=${encodeURIComponent(emailBody)}`;
+
+    // Open Gmail (or default mail client)
+    window.location.href = mailtoLink;
+
+    // Optionally reset the form
+    this.reset();
+});
+</script>
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -294,3 +320,4 @@
 
 </body>
 </html>
+

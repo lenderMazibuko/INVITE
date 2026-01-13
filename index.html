@@ -275,15 +275,6 @@ Plus One: ${plusOne}
 Song Suggestion: ${song}
 Message: ${message}`;
 
-    // Create mailto link
-    const mailtoLink = `mailto:Lendern6@gmail.com?subject=${encodeURIComponent('Wedding RSVP from ' + name)}&body=${encodeURIComponent(emailBody)}`;
-
-    // Open Gmail (or default mail client)
-    window.location.href = mailtoLink;
-
-    // Optionally reset the form
-    this.reset();
-});
 </script>
 
         function updateCountdown() {
@@ -320,4 +311,5 @@ Message: ${message}`;
 
 </body>
 </html>
+
 
